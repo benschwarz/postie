@@ -10,8 +10,8 @@ begin
     gem.homepage = "http://github.com/benschwarz/postie"
     gem.authors = ["Ben Schwarz"]
     gem.add_dependency("sinatra", ">= 0.9.2")
-    gem.add_dependency("dm-core", ">= 0.9.8")
-    gem.add_dependency("dm-serializer", ">= 0.9.8")
+    gem.add_dependency("dm-core")
+    gem.add_dependency("dm-serializer")
     gem.add_dependency("json")
 
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
