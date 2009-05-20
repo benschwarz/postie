@@ -62,3 +62,22 @@ Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
 
+task :environment do
+  require 'lib/postcode'
+end
+
+namespace :db do
+  task :import => :environment do
+    gem 'fastercsv'
+    require 'fastercsv'
+    
+    DataMapper.auto_migrate!
+    
+    postcodes = FasterCSV.read(File.join(File.dirname(__FILE__), "db", "pc-full_20090428.csv"))
+    postcodes.each do |(post_code, name, state_name, _, _, _, _, _, _, category)|
+      post_code = sprintf("%04d", post_code.to_i)
+      state = Postcode::State.first_or_create(:abbreviation => state_name)
+      Postcode::Locality.create(:post_code => post_code, :name => name, :state => state)
+    end
+  end
+end
