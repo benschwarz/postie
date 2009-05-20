@@ -1,2 +1,2 @@
-require File.join(File.dirname(__FILE__), 'lib', 'postcode')
-run Postcode::Application
+require File.join(File.dirname(__FILE__), 'lib', 'postie')
+run Postie::Application

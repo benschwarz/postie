@@ -1,8 +1,8 @@
-module Postcode
+module Postie
   class Locality
     include DataMapper::Resource
     
-    def self.default_repository_name; :postcode end;
+    def self.default_repository_name; :postie end;
     
     property :id, Serial
     property :name, String

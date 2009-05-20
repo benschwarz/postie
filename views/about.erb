@@ -1,0 +1,75 @@
+<!DOCTYPE>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Postie rack service</title>
+    <meta name="author" content="Ben Schwarz">
+    <style type="text/css" media="screen">
+      /* Trimmed to what I needed */ 
+      /* http://meyerweb.com/eric/tools/css/reset/ */
+      /* v1.0 | 20080212 */
+
+      html, body, div, span, applet, object, iframe,
+      h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+      a, abbr, acronym, address, big, cite, code,
+      del, dfn, em, font, img, ins, kbd, q, s, samp,
+      small, strike, strong, sub, sup, tt, var,
+      b, u, i, center,
+      dl, dt, dd, ol, ul, li,
+      fieldset, form, label, legend,
+      table, caption, tbody, tfoot, thead, tr, th, td {
+      	margin: 0;
+      	padding: 0;
+      	border: 0;
+      	outline: 0;
+      	font-size: 100%;
+      	vertical-align: baseline;
+      	background: transparent;
+      }
+      body {
+      	line-height: 1;
+      }
+      
+      /* end reset, start styles */
+      body { font-family: Helvetica, Arial; }
+      #container { width: 550px; margin: 0 auto; }
+
+      h1 { font-size: 3em; text-transform: lowercase; margin: 1.5em 0; }
+      h2 { font-size: 1.3em; text-transform: lowercase; margin: 1em 0; }
+      p { margin: 1em 0; }
+      li { margin: 0.3em 0; }
+      pre { display: inline-block; }
+
+      #footnote { text-align: right; border-top: 1px solid #ccc; padding-top: 0.5em; margin: 1em 0; }
+      #footnote a { color: #999; font-size: 0.7em; font-style: italic; }
+      #footnote a:hover { color: #666; }
+      .gist-meta { display: none; }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>postie</h1>
+      <p>Postie provides auspost (australia post) postcode information for suburbs via a json interface.</p>
+      <p>Drop it into your application and happily use your favourite JavaScript library to work out what the postcode is for the suburb your user just typed in</p>
+      
+      <h2>Some pointers to get you running:</h2>
+      
+      <p>For Sinatra / Rack based applications</p>
+      <script src="http://gist.github.com/114804.js"></script>
+      
+      <p>For Rails</p>
+      <script src="http://gist.github.com/114807.js"></script>
+      
+      <ul id="pointers">
+        <li><pre>/postcode/states</pre> Lists the states available</li>
+        <li><pre>/postcode/state/:name</pre> Lists the postcodes available for each state</li>
+        <li><pre>/postcode/suburbs</pre> Lists the suburbs available</li>
+        <li><pre>/postcode/suburb/:name</pre> Returns the postcode information for said suburb</li>
+      </ul>
+      
+      <p>Items are returned as application/json</p>
+
+      <div id="footnote"><a href="http://github.com/benschwarz/postie" title="Postie on Github">Postie on Github</a>
+    </div>
+  </body>
+</html>
