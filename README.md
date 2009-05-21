@@ -27,10 +27,11 @@ It's a bit rough but it works. Patches are welcome.
 
 Drop in postie then navigate to `/postcode` for full API reference.
 
+* `/postcode/3000` Lists any localities that have said postcode
 * `/postcode/states` Lists the states available
 * `/postcode/state/:name` Lists the postcodes available for each state
 * `/postcode/suburbs` Lists the suburbs available
-* `/postcode/suburb/:name` Returns the postcode information for said suburb
+* `/postcode/suburb/:name` Returns the postcode information for matching suburbs (substring search)
     
 ### Data source
 

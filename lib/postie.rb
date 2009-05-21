@@ -21,6 +21,10 @@ module Postie
       erb :about
     end
     
+    get '/postcode/:post_code' do
+      Postie::Locality.all(:post_code => params[:post_code]).to_json
+    end
+    
     get '/postcode/states' do
       Postie::State.all.to_json
     end
@@ -38,7 +42,7 @@ module Postie
     end
     
     get '/postcode/suburb/:name' do
-      Postie::Locality.first(:name.like => "%#{params[:name]}%").to_json
+      Postie::Locality.all(:name.like => "%#{params[:name]}%").to_json
     end
     
     not_found do

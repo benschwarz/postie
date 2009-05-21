@@ -61,10 +61,11 @@
       <script src="http://gist.github.com/114807.js"></script>
       
       <ul id="pointers">
+        <li><pre>/postcode/3000</pre> Lists any localities that have said postcode</li>
         <li><pre>/postcode/states</pre> Lists the states available</li>
         <li><pre>/postcode/state/:name</pre> Lists the postcodes available for each state</li>
         <li><pre>/postcode/suburbs</pre> Lists the suburbs available</li>
-        <li><pre>/postcode/suburb/:name</pre> Returns the postcode information for said suburb</li>
+        <li><pre>/postcode/suburb/:name</pre> Returns the postcode information for matching suburbs (substring search)</li>
       </ul>
       
       <p>Items are returned as application/json</p>
