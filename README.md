@@ -3,10 +3,10 @@
 Postie is a Sinatra based rack middleware that can be dropped into any rack or rails application.
 Postie provides Auspost (Australia Post) postcode information via a json interface.
 
-Drop it into your application and happily use your favourite JavaScript library to work out what the postcode is for the suburb your user just typed in.
+Drop it into your application and happily use your favourite javascript library to work out what the postcode for the suburb your user just typed in.
 
 ### Code quality
-Its a bit rough; but it works. Patches are welcome.
+It's a bit rough but it works. Patches are welcome.
 
 ## Sinatra or Rack applications
 
