@@ -79,23 +79,28 @@ namespace :db do
     DataMapper.auto_migrate!
     
     url = 'http://www1.auspost.com.au/download/pc-full.zip'
-    zip_file = File.open(File.join(File.dirname(__FILE__), 'db', 'pc-full.zip'), 'w')
+    zip_file = File.join(File.dirname(__FILE__), 'db', 'pc-full.zip')
     chdir File.join(File.dirname(__FILE__), 'db') do
       open url do |source|
+        zip = File.open(zip_file, 'w')
         while chunk = source.read(4096)
-          zip_file << chunk
+          zip << chunk
         end
+        zip.close
       end
-      zip_file.close
 
       `unzip -o pc-full.zip`
-    end
 
-    postcodes = FasterCSV.read(File.join(File.dirname(__FILE__), "db", "pc-full_20090428.csv"))
-    postcodes.each do |(post_code, name, state_name, comments, _, _, _, _, _, category)|
-      post_code = sprintf("%04d", post_code.to_i)
-      state = Postie::State.first_or_create(:abbreviation => state_name)
-      Postie::Locality.create(:post_code => post_code, :name => name, :state => state, :comments => comments)
+      csv_file = Dir.glob('*.csv').first
+      postcodes = FasterCSV.read(File.join(File.dirname(__FILE__), "db", csv_file))
+      postcodes.each do |(post_code, name, state_name, comments, _, _, _, _, _, category)|
+        #post_code = sprintf("%04d", post_code.to_i)
+        #state = Postie::State.first_or_create(:abbreviation => state_name)
+        #Postie::Locality.create(:post_code => post_code, :name => name, :state => state, :comments => comments)
+      end
+
+      File.unlink(csv_file)
+      File.unlink(zip_file)
     end
   end
 end
