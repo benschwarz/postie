@@ -35,12 +35,13 @@ Drop in postie then navigate to `/postcode` for full API reference.
 ### Data source
 
 Postie data comes from Auspost, I haven't even read the terms of use, thats just how thug I am.
-The database dump is dated 28/04/09
+There is a rake task (`rake db:import`) that will download the latest database from auspost and import it to the database.
 
 ## Thanks
 
 * Pat Allan, I stole his postie idea that was originally a Rails app, then a Merb app. I took one more progression and made it even smaller (Sinatra / Rack)
 * Ben Askins, for the db:import / FasterCSV task
+* dsturnbull, for updating the db import tasks to pull directly from auspost
 
 ### Copyright
 
