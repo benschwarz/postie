@@ -27,14 +27,15 @@ Its a bit rough; but it works. Patches are welcome.
 
 Drop in postie then navigate to `/postcode` for full API reference.
 
-/postcode/states Lists the states available
-/postcode/state/:name Lists the postcodes available for each state
-/postcode/suburbs Lists the suburbs available
-/postcode/suburb/:name Returns the postcode information for said suburb
+* `/postcode/states` Lists the states available
+* `/postcode/state/:name` Lists the postcodes available for each state
+* `/postcode/suburbs` Lists the suburbs available
+* `/postcode/suburb/:name` Returns the postcode information for said suburb
     
 ### Data source
 
 Postie data comes from Auspost, I haven't even read the terms of use, thats just how thug I am.
+The database dump is dated 28/04/09
 
 ## Thanks
 
