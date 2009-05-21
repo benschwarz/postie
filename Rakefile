@@ -74,9 +74,23 @@ namespace :db do
   task :import => :environment do
     gem 'fastercsv'
     require 'fastercsv'
+    require 'open-uri'
     
     DataMapper.auto_migrate!
     
+    url = 'http://www1.auspost.com.au/download/pc-full.zip'
+    zip_file = File.open(File.join(File.dirname(__FILE__), 'db', 'pc-full.zip'), 'w')
+    chdir File.join(File.dirname(__FILE__), 'db') do
+      open url do |source|
+        while chunk = source.read(4096)
+          zip_file << chunk
+        end
+      end
+      zip_file.close
+
+      `unzip -o pc-full.zip`
+    end
+
     postcodes = FasterCSV.read(File.join(File.dirname(__FILE__), "db", "pc-full_20090428.csv"))
     postcodes.each do |(post_code, name, state_name, comments, _, _, _, _, _, category)|
       post_code = sprintf("%04d", post_code.to_i)
